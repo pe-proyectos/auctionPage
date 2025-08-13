@@ -18,7 +18,6 @@ model User {
 
   publicaciones Publicacion[]
   pujas         Puja[]
-  comprasFichas FichaCompra[]
 }
 
 model Categoria {
@@ -54,14 +53,4 @@ model Puja {
 
   publicacionId Int
   publicacion   Publicacion @relation(fields: [publicacionId], references: [id])
-}
-
-model FichaCompra {
-  id       Int      @id @default(autoincrement())
-  cantidad Int
-  precio   Float
-  fecha    DateTime @default(now())
-
-  usuarioId Int
-  usuario   User @relation(fields: [usuarioId], references: [id])
 }
